@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+  
+    <script>
+        //根据设计稿去设置  html 的font-size 属性
+        (function (n) {
+            let w = document.documentElement.clientWidth || document.body.clientWidth; // 屏幕宽度
+            document.documentElement.style.fontSize = w/n*100 + 'px';
+        })(750)
+    </script>
+    <link rel="stylesheet" href="less/base.css">
+    <link rel="stylesheet" href="less/index.css">
+    
+   
+</head>
+<body>
+   <header>
+       <div class='head'>
+          
+           <img src="img/goback.png" alt="goback" onclick='goback()'>
+      
+           <span>活动规则</span>
+       </div>
+   </header> 
+   <article>
+    <div class='contain'>
+        <div>
+                1 活动简述：进入活动页面后给好友发送红包，好友红包领取成功后你将获得相同的奖励金额。
+        </div>
+        <div>
+                2 好友领取成功的条件：好友开出红包金额后，点击包含提现或领取文案的按钮后，必须打开商蜜App通过站内信、短信或自动唤起的方式打开领奖页面，领取红包金额时需要实名绑卡成功后将会打入小金库账户，红包金额最晚24小时内到账。      
+            </div>
+            <div>
+                    3 自己成功获得奖励的条件：好友去商蜜App内领取成功后，自己获得的奖励将进入待提现的虚拟账户当中，可在商蜜App内领取，好友领多少，你将获得相同金额的现金奖励，每人每天可获得的奖励上限为100万元人民币，超出奖励将不予发放。      
+                </div>
+                <div>
+                        4 拆开好友发的红包：每个用户一天只能拆开一个红包，金额随机，拆开后存入待提现金额中，可在商蜜App内领取提现。    
+                    </div>
+                    <div>
+                
+        5 已提现：历史已经成功提现到小金库账户的金额总和。
+         
+                        </div>
+  
+
+  <div>
+        6 待提现：好友成功领取了你的红包后获得的奖励和你点开了好友的红包并未进行提现的金额之和。
+  </div>
+        
+     <div>
+            7 已获得奖励份数：好友成功领取了你的红包份数。    
+  </div>
+  <div>
+    
+        8 奖励在路上：好友拆开你的红包后并未成功领取的份数。   
+    </div>
+    <div>
+            9 我领取的红包份数：我拆开好友的红包并领取成功的份数。  
+        </div>
+        <div>
+                10 活动下线或结束：请及时关注活动页面通知，收到活动下线通知后，请尽快将待提现金额完成领取，否则失效，活动结束后发出的红包将会无法继续拆开或拆开后不结算奖励。 
+            </div> 
+            <div>
+                    11 活动每天仅限前200万人参与，名额有限，领完为止。
+            </div>
+
+    </div>  
+    </article>
+</body>
+</html>
+<script src="js/index.js"></script>

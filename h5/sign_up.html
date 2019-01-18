@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sign-up</title>
+    <link rel="stylesheet" href="less/common_form.css">
+    <!-- <script>
+        (function (n) {
+            let w = document.documentElement.clientWidth || document.body.clientWidth; 
+            document.documentElement.style.fontSize = w/n*100 + 'px';
+        })(750)
+    </script> -->
+</head>
+<body>
+    <header>
+        <div class="header-line"></div>
+    </header>
+    <div class="content">
+        <!-- <img class="content-logo" src="img/form_logo.png" alt="logo"> -->
+        <h2 class="content-title">注册领红包</h2>
+        <div class="content-form">
+            <form method="post" action="" onsubmit="return submitTest()">
+                <div id="change_margin_1">
+                   手机号 <input class="user" type="text" name="user" placeholder="请输入用户名" onblur="oBlur_1()" onfocus="oFocus_1()">
+                </div>
+                <!-- input的value为空时弹出提醒 -->
+                <p id="remind_1"></p>
+                <div id="change_margin_2">
+                   密码 <input class="password" type="password" name="password" placeholder="请输入密码" onblur="oBlur_2()" onfocus="oFocus_2()">
+                </div>
+                <!-- input的value为空时弹出提醒 -->
+                <p id="remind_2"></p>
+                <div id="change_margin_3">
+                    <input class="content-form-signup" type="submit" value="创建账户">
+                </div>
+            </form>
+        </div>
+        <div class="content-login-description">已经拥有账户？</div>
+        <div><a class="content-login-link" href="log_in.html">登录</a></div>
+    </div>
+<script src="js/common_form_test.js"></script>
+</body>
+</html>

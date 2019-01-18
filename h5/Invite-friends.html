@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+      .tankuang{
+     display: none;
+     position: absolute;
+     height: 6.6rem;
+     width: 6rem;
+     background: #fff;
+        top:4rem;
+        left:50%;
+        margin-left:-3rem;
+        border-radius: 0.3rem 0.3rem 0.3rem 0.3rem !important;
+    }
+    .zc-head{
+        font-family: Helvetica-Bold;
+        font-size: 0.34rem;
+        color: #FFFFFF;
+        line-height: 1.2rem;
+       margin-bottom: 0.8rem;
+    }
+    .close{
+        position: absolute;
+        display: none;
+        left:90%;
+        top:22%
+    }
+    .close img{
+        height: 0.42rem;
+        width: 0.42rem;
+        
+    }
+    .register{
+        height: 6.6rem;
+        background: url('img/img_注册背景@3x.png') no-repeat  top;  
+        background-size: 100% 22%;
+        
+        /* border-radius: 0.3rem 0.3rem 0 0 ; */
+    }
+    #phone{
+        margin-top: 2rem;
+    }
+    #phone,#code,#password{
+        font-family: PingFangSC-Regular;
+    font-size: 0.24rem;
+    color: #666666;
+    line-height:0.68rem;
+    width: 5rem;
+    height: 0.68rem;
+    margin: 0.21rem auto;
+    border-bottom: 1px solid #E6E6E6;
+
+    }
+   
+  .zc input{
+        border-width:0;
+        font-family: PingFangSC-Regular;
+        font-size: 0.24rem;
+        color: #CCCCCC;
+        line-height:0.24rem;
+        text-align: left;
+        margin-left: -1rem;
+    }
+    .zc span{
+        float: left;
+     
+    }
+
+    /*领取红包*/
+    .get-hb{
+        background: #E6E6E6;
+border-radius: 0.1rem;
+width: 5rem;
+height: 0.7rem;
+font-family: PingFangSC-Regular;
+font-size: 0.28rem;
+color: #B3B3B3;
+line-height: 0.28rem;
+border:none;
+    }
+    .Tips{
+        font-family: PingFangSC-Regular;
+font-size: 0.2rem;
+color: #B3B3B3;
+line-height: 0.2rem;
+margin-top: 0.08rem;
+    }
+    /* 错误提醒 */
+    .error-info{
+        font-family: PingFangSC-Regular;
+font-size: 0.2rem;
+color: #FF4C4C;
+line-height: 0.2rem;
+margin-left:0.5rem; 
+    }
+  
+
+    </style>
+  
+    <script>
+            (function (n) {
+                let w = document.documentElement.clientWidth || document.body.clientWidth; 
+                document.documentElement.style.fontSize = w/n*100 + 'px';
+            })(750)
+        </script>
+          <link rel="stylesheet" href="less/base.css">
+          <link rel="stylesheet" href="less/Invite-friends.css">
+</head>
+<body>
+    <header>
+            <div class='head'>
+          
+                    <img src="img/goback.png" alt="goback" onclick='goback()'>
+               
+                    <span>商蜜送你一个大红包</span>
+                </div>
+    </header>
+    <section>
+        <div class="content"  >
+            <div class="hongbao"> 
+                  <div class='gotorule'>
+                        <a href="index.html">活动规则</a>
+                </div>
+                <div class="box">             
+              
+                <div class='Personal_image'>
+                    <img src="img/img_注册成功@3x.png"
+                   >     
+                      </div>
+                      <div class="hb_friend">
+                            <p>
+                                    您的好友 
+                                    <span>小蜜</span> 邀请你使用商蜜
+                                    并送您一个新人红包
+                            </p>  
+                      </div>
+                     <div class='money'>
+                         <span class='count'>5</span>
+                         <span class='cash'>可提现</span>
+                         <span class='yuan'>元</span>
+                     </div> 
+                     <!-- 领取按钮 -->
+                     <div class='btn'>
+                            <button class='get_money' onclick="getMoney()">立即领取</button>
+                     </div>
+                     <div class="close" onclick="closeHb()"><img src="img/关闭@3x.png"/></div>
+                     <div class='tankuang'  >
+                         <div class='register'>
+                            <div class='zc-head'>注册领红包</div>
+                            <div class='zc'>
+                                <div id="phone">
+                                    <span>手机号</span> <input class="user" type="text" name="user" placeholder="请输入您的手机号" onblur="oBlur_1()" onfocus="oFocus_1()"
+                                    >
+                                 </div>
+                                 <div id="code">
+                                    <span>验证码</span> 
+                                    <input class="user" type="text" name="user" placeholder="请输入验证码" onblur="oBlur_1()" onfocus="oFocus_1()">
+                                    <input class='yzm' style='color:#4C6AFF ;font-size:0.24rem; position:absolute;  width:1.5rem; right:0.8rem; height:.65rem;'  value=" 获取验证码"  onclick="settime(this);">  
+                                 
+                             
+                                 </div>                        
+                                 <div id="password">
+                                   <span>密&nbsp&nbsp&nbsp码</span>  <input class="password" type="password" name="password" placeholder="请设置6~12位的密码">
+                                 </div>
+                                 <span class='error-info'>请输入正确的手机号</span>
+                            </div>
+                        <button class='get-hb'>领取红包</button>
+                        <div class='Tips'>点击领取红包，即表示您同意用户协议</div>
+                         </div>
+                     </div>
+                   <div>
+
+                   </div>
+                  <!--商蜜介绍及现金领取的方法  -->
+                    <div class='massage'>
+                            <span>商蜜介绍</span>
+                        <div class='ism_introduce'>
+                           
+                            <p class='ism_describe'>在商蜜你会看到600000个实名认证的企业家信息，我们在“同一个世界、同一个圈层、同一个梦想”下进行互动交友、信息分享。</p>
+                            <p class="ism_Slogan">爱钞票，爱美人，爱商蜜APP</p>
+                        </div>
+                        <span>现金领取方法</span>
+                        <div class='get_way'>
+                           
+                            <ul>
+                                <li>1、被推荐人完成实名认证，推荐人与被推荐人各获得XX元现金奖励
+                                
+                                  </li>
+                                    <li>    2、满足条件后现金发放在商蜜app账户余额中</li>
+                                    <li>
+                                        3、可在商蜜app余额中操作提现
+                                    </li>
+                                </ul>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+<script src="js/index.js"></script>
