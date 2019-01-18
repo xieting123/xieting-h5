@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>商蜜送你一个大红包</title>
     <style>
       .tankuang{
-     display: none;
+     /* display: none; */
+     display: block;
      position: absolute;
      height: 6.6rem;
      width: 6rem;
@@ -37,7 +38,7 @@
     }
     .register{
         height: 6.6rem;
-        background: url('img/img_注册背景@3x.png') no-repeat  top;  
+        background: url('img/img_注册背景@3x.png') no-repeat  top; 
         background-size: 100% 22%;
         
         /* border-radius: 0.3rem 0.3rem 0 0 ; */
@@ -73,13 +74,12 @@
 
     /*领取红包*/
     .get-hb{
-        background: #E6E6E6;
+        
 border-radius: 0.1rem;
 width: 5rem;
 height: 0.7rem;
 font-family: PingFangSC-Regular;
 font-size: 0.28rem;
-color: #B3B3B3;
 line-height: 0.28rem;
 border:none;
     }
@@ -91,7 +91,7 @@ line-height: 0.2rem;
 margin-top: 0.08rem;
     }
     /* 错误提醒 */
-    .error-info{
+    #error-info{
         font-family: PingFangSC-Regular;
 font-size: 0.2rem;
 color: #FF4C4C;
@@ -112,19 +112,19 @@ margin-left:0.5rem;
           <link rel="stylesheet" href="less/Invite-friends.css">
 </head>
 <body>
-    <header>
+    <!-- <header>
             <div class='head'>
           
                     <img src="img/goback.png" alt="goback" onclick='goback()'>
                
                     <span>商蜜送你一个大红包</span>
                 </div>
-    </header>
+    </header> -->
     <section>
         <div class="content"  >
             <div class="hongbao"> 
                   <div class='gotorule'>
-                        <a href="index.html">活动规则</a>
+                        <a href="rules.html">活动规则</a>
                 </div>
                 <div class="box">             
               
@@ -154,22 +154,34 @@ margin-left:0.5rem;
                             <div class='zc-head'>注册领红包</div>
                             <div class='zc'>
                                 <div id="phone">
-                                    <span>手机号</span> <input class="user" type="text" name="user" placeholder="请输入您的手机号" onblur="oBlur_1()" onfocus="oFocus_1()"
+                                    <span>手机号</span> <input id="tel" type="text" name="user" placeholder="请输入您的手机号" onkeydown='keydown_1(event,value)' onfocus="this.placeholder=''"
+                                    oninput="onInput_1(value)"
+                                    onblur="oBlur_1(value)"
                                     >
                                  </div>
                                  <div id="code">
                                     <span>验证码</span> 
-                                    <input class="user" type="text" name="user" placeholder="请输入验证码" onblur="oBlur_1()" onfocus="oFocus_1()">
+                                    <input id="code-text" type="text" name="user" placeholder="请输入验证码" 
+                                    onfocus="this.placeholder=''"
+                                    oninput="onInput_2(value)"
+                                    onblur="oBlur_2(value)"
+                                    onkeydown='keydown_2(event)' 
+                                    >
                                     <input class='yzm' style='color:#4C6AFF ;font-size:0.24rem; position:absolute;  width:1.5rem; right:0.8rem; height:.65rem;'  value=" 获取验证码"  onclick="settime(this);">  
                                  
                              
                                  </div>                        
                                  <div id="password">
-                                   <span>密&nbsp&nbsp&nbsp码</span>  <input class="password" type="password" name="password" placeholder="请设置6~12位的密码">
+                                   <span>密&nbsp&nbsp&nbsp码</span>  <input id="password_use" type="password" name="password" placeholder="请设置6~12位的密码"
+                                   onfocus="this.placeholder=''"
+                                   oninput="onInput_3(value)"
+                                   onblur="oBlur_3(value)"
+                                   onkeydown='keydown_3(event,value)' 
+                                  >
                                  </div>
-                                 <span class='error-info'>请输入正确的手机号</span>
+                                 <span id='error-info'>错误提醒</span>
                             </div>
-                        <button class='get-hb'>领取红包</button>
+                        <button class='get-hb' style='background: #E6E6E6;color: #B3B3B3;' onclick='zc_getHb()'>领取红包</button>
                         <div class='Tips'>点击领取红包，即表示您同意用户协议</div>
                          </div>
                      </div>
