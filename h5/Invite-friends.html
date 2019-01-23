@@ -5,102 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>商蜜送你一个大红包</title>
-    <style>
-      .tankuang{
-     /* display: none; */
-     display: block;
-     position: absolute;
-     height: 6.6rem;
-     width: 6rem;
-     background: #fff;
-        top:4rem;
-        left:50%;
-        margin-left:-3rem;
-        border-radius: 0.3rem 0.3rem 0.3rem 0.3rem !important;
-    }
-    .zc-head{
-        font-family: Helvetica-Bold;
-        font-size: 0.34rem;
-        color: #FFFFFF;
-        line-height: 1.2rem;
-       margin-bottom: 0.8rem;
-    }
-    .close{
-        position: absolute;
-        display: none;
-        left:90%;
-        top:22%
-    }
-    .close img{
-        height: 0.42rem;
-        width: 0.42rem;
-        
-    }
-    .register{
-        height: 6.6rem;
-        background: url('img/img_注册背景@3x.png') no-repeat  top; 
-        background-size: 100% 22%;
-        
-        /* border-radius: 0.3rem 0.3rem 0 0 ; */
-    }
-    #phone{
-        margin-top: 2rem;
-    }
-    #phone,#code,#password{
-        font-family: PingFangSC-Regular;
-    font-size: 0.24rem;
-    color: #666666;
-    line-height:0.68rem;
-    width: 5rem;
-    height: 0.68rem;
-    margin: 0.21rem auto;
-    border-bottom: 1px solid #E6E6E6;
 
-    }
-   
-  .zc input{
-        border-width:0;
-        font-family: PingFangSC-Regular;
-        font-size: 0.24rem;
-        color: #CCCCCC;
-        line-height:0.24rem;
-        text-align: left;
-        margin-left: -1rem;
-    }
-    .zc span{
-        float: left;
-     
-    }
-
-    /*领取红包*/
-    .get-hb{
-        
-border-radius: 0.1rem;
-width: 5rem;
-height: 0.7rem;
-font-family: PingFangSC-Regular;
-font-size: 0.28rem;
-line-height: 0.28rem;
-border:none;
-    }
-    .Tips{
-        font-family: PingFangSC-Regular;
-font-size: 0.2rem;
-color: #B3B3B3;
-line-height: 0.2rem;
-margin-top: 0.08rem;
-    }
-    /* 错误提醒 */
-    #error-info{
-        font-family: PingFangSC-Regular;
-font-size: 0.2rem;
-color: #FF4C4C;
-line-height: 0.2rem;
-margin-left:0.5rem; 
-    }
-  
-
-    </style>
   
     <script>
             (function (n) {
@@ -110,33 +15,26 @@ margin-left:0.5rem;
         </script>
           <link rel="stylesheet" href="less/base.css">
           <link rel="stylesheet" href="less/Invite-friends.css">
+          <link rel="stylesheet" href="less/register.css" >
 </head>
 <body>
-    <!-- <header>
-            <div class='head'>
-          
-                    <img src="img/goback.png" alt="goback" onclick='goback()'>
-               
-                    <span>商蜜送你一个大红包</span>
-                </div>
-    </header> -->
     <section>
         <div class="content"  >
             <div class="hongbao"> 
                   <div class='gotorule'>
+                      <div class="out"></div>
                         <a href="rules.html">活动规则</a>
                 </div>
                 <div class="box">             
               
                 <div class='Personal_image'>
-                    <img src="img/img_注册成功@3x.png"
-                   >     
+                    <img src="img/img_注册成功@3x.png" id=OImg  >     
                       </div>
                       <div class="hb_friend">
-                            <p>
-                                    您的好友 
-                                    <span>小蜜</span> 邀请你使用商蜜
-                                    并送您一个新人红包
+                            <p id='my_friend'>
+                                  <span>  您的好友 
+                                    <span id='friend'>小蜜</span> 邀请你使用商蜜</span>
+                                    <span style="display:inline-block">并送您一个新人红包</span>
                             </p>  
                       </div>
                      <div class='money'>
@@ -150,11 +48,12 @@ margin-left:0.5rem;
                      </div>
                      <div class="close" onclick="closeHb()"><img src="img/关闭@3x.png"/></div>
                      <div class='tankuang'  >
+                         <a href=""></a>
                          <div class='register'>
                             <div class='zc-head'>注册领红包</div>
                             <div class='zc'>
                                 <div id="phone">
-                                    <span>手机号</span> <input id="tel" type="text" name="user" placeholder="请输入您的手机号" onkeydown='keydown_1(event,value)' onfocus="this.placeholder=''"
+                                    <span>手机号</span> <input id="tel" type="text" name="user" placeholder="请输入您的手机号" onkeyup='keyup_1(event,value)' onfocus="this.placeholder=''"
                                     oninput="onInput_1(value)"
                                     onblur="oBlur_1(value)"
                                     >
@@ -165,9 +64,9 @@ margin-left:0.5rem;
                                     onfocus="this.placeholder=''"
                                     oninput="onInput_2(value)"
                                     onblur="oBlur_2(value)"
-                                    onkeydown='keydown_2(event)' 
+                                    onkeyup='keyup_2(event)' 
                                     >
-                                    <input class='yzm' style='color:#4C6AFF ;font-size:0.24rem; position:absolute;  width:1.5rem; right:0.8rem; height:.65rem;'  value=" 获取验证码"  onclick="settime(this);">  
+                                    <input id='yzm' style='color:#4C6AFF ;font-size:0.24rem; position:absolute;  width:1.5rem; right:0.8rem; height:.65rem;'  value=" 获取验证码"  onclick="settime(this);">  
                                  
                              
                                  </div>                        
@@ -176,10 +75,10 @@ margin-left:0.5rem;
                                    onfocus="this.placeholder=''"
                                    oninput="onInput_3(value)"
                                    onblur="oBlur_3(value)"
-                                   onkeydown='keydown_3(event,value)' 
+                                   onkeyup='keyup_3(event,value)' 
                                   >
                                  </div>
-                                 <span id='error-info'>错误提醒</span>
+                                 <span id='error-info'></span>
                             </div>
                         <button class='get-hb' style='background: #E6E6E6;color: #B3B3B3;' onclick='zc_getHb()'>领取红包</button>
                         <div class='Tips'>点击领取红包，即表示您同意用户协议</div>
@@ -216,4 +115,7 @@ margin-left:0.5rem;
     </section>
 </body>
 </html>
+<script src="./lib/axios.js"></script>
+<script src='js/utils.js'></script>
+<script src="./js/httpRequest.js"></script>
 <script src="js/index.js"></script>

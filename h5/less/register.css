@@ -1,0 +1,95 @@
+
+.tankuang{
+display: none;
+/* display: block; */
+position: absolute;
+height: 6.6rem;
+width: 6rem;
+background: #fff;
+  top:4rem;
+  left:50%;
+  margin-left:-3rem;
+  border-radius: 0.3rem 0.3rem 0.3rem 0.3rem !important;
+}
+.zc-head{
+  font-family: Helvetica-Bold;
+  font-size: 0.34rem;
+  color: #FFFFFF;
+  line-height: 1.2rem;
+ margin-bottom: 0.8rem;
+}
+.close{
+  position: absolute;
+  display: none;
+  left:90%;
+  top:22%
+}
+.close img{
+  height: 0.42rem;
+  width: 0.42rem;
+  
+}
+.register{
+  height: 6.6rem;
+  background: url('../img/img_注册背景@3x.png') no-repeat  top; 
+  background-size: 100% 22%;
+  
+  /* border-radius: 0.3rem 0.3rem 0 0 ; */
+}
+#phone{
+  margin-top: 2rem;
+}
+#phone,#code,#password{
+  font-family: PingFangSC-Regular;
+font-size: 0.24rem;
+color: #666666;
+line-height:0.68rem;
+width: 5rem;
+height: 0.68rem;
+margin: 0.21rem auto;
+border-bottom: 1px solid #E6E6E6;
+
+}
+
+.zc input{
+  border-width:0;
+  font-family: PingFangSC-Regular;
+  font-size: 0.24rem;
+  color: #CCCCCC;
+  line-height:0.24rem;
+  text-align: left;
+  margin-left: -1rem;
+}
+.zc span{
+  float: left;
+
+}
+
+/*领取红包*/
+.get-hb{
+  
+border-radius: 0.1rem;
+width: 5rem;
+height: 0.7rem;
+font-family: PingFangSC-Regular;
+font-size: 0.28rem;
+line-height: 0.28rem;
+border:none;
+}
+.Tips{
+  font-family: PingFangSC-Regular;
+font-size: 0.2rem;
+color: #B3B3B3;
+line-height: 0.2rem;
+margin-top: 0.08rem;
+}
+/* 错误提醒 */
+#error-info{
+  font-family: PingFangSC-Regular;
+font-size: 0.2rem;
+color: #FF4C4C;
+line-height: 0.2rem;
+margin-left:0.5rem; 
+}
+
+

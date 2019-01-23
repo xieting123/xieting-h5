@@ -1,27 +1,109 @@
+<!doctype html>
 <html>
 <head>
-<script type="text/javascript">
-function getInnerHTML()
-  {
-  alert(document.getElementById("tr1").innerHTML);
-  }
-</script>
+<meta charset="utf-8">
+<title>4位随机验证码的生成</title>
+<style>
+	label{
+		color:aqua;
+		float:left;
+		font-size: 20px;
+		line-height:2em;
+	}
+	#tex{
+		display:inline-block;
+		width:50px;
+		height: 25px;
+		float:left;
+		text-align: center;
+		font-size:15px;
+		margin-top:10px;
+	}
+	#showyz{
+		border:3px solid green;
+		color:blue;
+		width:90px;
+		height:40px;
+		text-align:center;
+		float:left;
+		margin-left:15px;
+		line-height: 2.5em;
+		
+	}
+	#hyz{
+		background-color:burlywood;
+		border:1px solid burlywood;
+		width:50px;
+		height:20px;
+		float: left;
+		margin-left:20px;
+		margin-top: 10px;
+		margin-right:15px;
+	}
+	#btn{
+		
+	}
+</style>
 </head>
 <body>
-
-<table border="1">
-<tr id="tr1">
-<th>Firstname</th>
-<th>Lastname</th>
-</tr>
-<tr id="tr2">
-<td>Peter</td>
-<td>Griffin</td>
-</tr>
-</table>
-<br />
-<input type="button" onclick="getInnerHTML()" 
-value="Alert innerHTML of table row" />
-
+<label for="tex">请输入验证码：</label><input type="text" id="tex" maxlength="4" autofocus>
+<div id="showyz"></div>
+<div id="hyz">换一张</div><br>
+<input type="button" id="btn" value="确认">
 </body>
+<script>
+//定义个空数组保存62个编码
+var codes=[];
+//将数字对应的编码保存到codes数组中，数字编码范围【48-57】
+for(var i=48;i<=57;i++){
+	codes.push(i);
+}
+//将大写字母对应的编码保存到codes数组中，对应编码范围【65-90】
+for(var i=65;i<=90;i++){
+	codes.push(i);
+}
+//将小写字母对应的编码保存到codes数组中，对应编码范围【97-122】
+for(var i=97;i<=122;i++){
+	codes.push(i);
+}
+//定义个方法生成62位随机数作为数组角标返回随机的编码，再将其编码转化为对应数字或者字母
+function suiji(){
+var arr=[];//定义个数组保存4位随机数
+	for(var i=0;i<4;i++){
+	var index=Math.floor(Math.random()*(61-0+1)+0);//生成个随机数
+	var char=String.fromCharCode(codes[index]);//解码
+		arr.push(char);	//存入到数组arr中
+}
+	return arr.join("");//将数组转为字符串，以空格分隔，并返回
+}
+var yzm=suiji();//调用方法，将放回的验证码返回到yzm中
+//获取上述元素
+var tex=document.getElementById("tex");
+var showyz=document.getElementById("showyz");
+var hyz=document.getElementById("hyz");
+var btn=document.getElementById("btn");
+//将验证码写入到id为showyz的div中
+showyz.innerHTML=yzm;
+//实现换一张验证码功能
+hyz.onclick=function(){
+	yzm=suiji();
+	showyz.innerHTML=yzm;
+}
+//将自己输入的验证码与获取的随机验证码验证
+btn.onclick=function(){
+  var textvalue=tex.value;//获取输入的值
+	if(textvalue.toLowerCase()==yzm.toLowerCase()){//将值都转为小写比较
+		alert("验证码输入正确！");
+		yzm=suiji();
+	    showyz.innerHTML=yzm;
+		tex.value="";
+	}
+	else{
+		alert("验证码输入错误，请重新输入！");
+		yzm=suiji();
+	    showyz.innerHTML=yzm;
+		tex.value="";
+	}
+}
+</script>
 </html>
